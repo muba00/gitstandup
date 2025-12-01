@@ -2,7 +2,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { collectCommits } from "./git.js";
+import { collectCommits, type RepoResult } from "./git.js";
 import { loadConfig, saveConfig, ensureConfigDir } from "./config.js";
 
 const server = new McpServer({
@@ -80,7 +80,7 @@ server.registerTool(
 
     const results = await collectCommits(repoPaths, hours);
     const totalCommits = results.reduce(
-      (sum: number, r) => sum + (r.commits?.length || 0),
+      (sum: number, r: RepoResult) => sum + (r.commits?.length || 0),
       0
     );
 

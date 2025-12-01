@@ -3,7 +3,7 @@ import { existsSync } from "fs";
 import path from "path";
 import os from "os";
 
-interface Config {
+export interface Config {
   repos: string[];
 }
 

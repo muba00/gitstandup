@@ -1,7 +1,7 @@
 import { simpleGit, SimpleGit } from "simple-git";
 import path from "path";
 
-interface CommitInfo {
+export interface CommitInfo {
   hash: string;
   message: string;
   author: string;
@@ -14,7 +14,7 @@ interface CommitInfo {
   };
 }
 
-interface RepoResult {
+export interface RepoResult {
   name: string;
   path: string;
   commits?: CommitInfo[];
