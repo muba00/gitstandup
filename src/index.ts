@@ -7,7 +7,7 @@ import { loadConfig, saveConfig, ensureConfigDir } from "./config.js";
 
 const server = new McpServer({
   name: "gitstandup-mcp",
-  version: "1.0.0",
+  version: "1.0.6",
 });
 
 // Tool: generate_standup
@@ -41,10 +41,10 @@ server.registerTool(
                 additions: z.number(),
                 deletions: z.number(),
               }),
-            })
+            }),
           ),
           error: z.string().optional(),
-        })
+        }),
       ),
       summary: z.object({
         totalCommits: z.number(),
@@ -81,7 +81,7 @@ server.registerTool(
     const results = await collectCommits(repoPaths, hours);
     const totalCommits = results.reduce(
       (sum: number, r: RepoResult) => sum + (r.commits?.length || 0),
-      0
+      0,
     );
 
     const output = {
@@ -103,7 +103,7 @@ server.registerTool(
       ],
       structuredContent: output,
     };
-  }
+  },
 );
 
 // Tool: add_repos
@@ -143,7 +143,7 @@ server.registerTool(
       ],
       structuredContent: output,
     };
-  }
+  },
 );
 
 // Tool: list_repos
@@ -175,7 +175,7 @@ server.registerTool(
       ],
       structuredContent: output,
     };
-  }
+  },
 );
 
 // Tool: remove_repos
@@ -214,7 +214,7 @@ server.registerTool(
       ],
       structuredContent: output,
     };
-  }
+  },
 );
 
 // Start the server
