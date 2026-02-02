@@ -44,6 +44,11 @@ jobs:
           sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" server.json
           sed -i "s/\"version\": \".*\",/\"version\": \"$VERSION\",/" server.json
 
+      - name: Login to MCP Registry
+        run: mcp-publisher login github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish to MCP Registry
         run: mcp-publisher publish
         env:
