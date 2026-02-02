@@ -1,6 +1,6 @@
 {
   "name": "gitstandup-mcp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MCP server for generating daily standup notes from git commits",
   "mcpName": "io.github.muba00/gitstandup",
   "type": "module",
