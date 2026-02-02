@@ -1,10 +1,15 @@
 {
   "name": "gitstandup-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for generating daily standup notes from git commits",
+  "mcpName": "io.github.muba00/gitstandup",
   "type": "module",
   "bin": {
     "gitstandup-mcp": "./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muba00/gitstandup.git"
   },
   "scripts": {
     "build": "tsc && chmod +x build/index.js",

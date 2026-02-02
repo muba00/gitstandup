@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.muba00/gitstandup",
+  "description": "MCP server for generating daily standup notes from git commits across multiple repositories. Automatically collects your commits, includes code diffs, and helps AI assistants generate natural standup summaries.",
+  "repository": {
+    "url": "https://github.com/muba00/gitstandup",
+    "source": "github"
+  },
+  "version": "1.0.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "gitstandup-mcp",
+      "version": "1.0.1",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

@@ -178,6 +178,49 @@ Repository paths are stored in `~/.gitstandup/config.json`:
 
 You can edit this file manually or use the `add_repos` and `remove_repos` tools.
 
+## 📦 Publishing to MCP Registry
+
+This server is discoverable via the [GitHub MCP Registry](https://github.com/mcp) and [OSS MCP Community Registry](https://github.com/modelcontextprotocol/registry).
+
+### For Maintainers
+
+To publish a new version:
+
+1. **Update version in both files:**
+
+   ```bash
+   # Update version in package.json and server.json
+   npm version patch  # or minor/major
+   ```
+
+2. **Build and publish to npm:**
+
+   ```bash
+   npm run build
+   npm publish
+   ```
+
+3. **Install mcp-publisher (first time only):**
+
+   ```bash
+   brew install mcp-publisher
+   # OR
+   curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher && sudo mv mcp-publisher /usr/local/bin/
+   ```
+
+4. **Authenticate (first time only):**
+
+   ```bash
+   mcp-publisher login github
+   ```
+
+5. **Update server.json version to match package.json and publish:**
+   ```bash
+   mcp-publisher publish
+   ```
+
+The server will automatically appear in both the GitHub MCP Registry and the community registry, making it discoverable in VS Code, Claude Desktop, and other MCP-compatible clients.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
